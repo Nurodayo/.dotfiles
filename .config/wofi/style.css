@@ -1,0 +1,47 @@
+window {
+    border-radius: 12px;
+    background-color: rgba(20, 20, 20, 0.5);
+    color: #ffffff;
+}
+
+#entry:selected {
+    background: linear-gradient(180deg, #ff0066, #ff4ab7);
+    color: #ffffff;
+    border-radius: 16px;
+}
+
+/* Target the image inside the entry */
+#entry image {
+    min-width: 24px;        /* Set the icon size */
+    min-height: 24px;
+    margin-right: 8px;      /* Add space between the icon and the text */
+}
+
+/* Specifically target the image in the selected entry */
+#entry:selected image {
+    -gtk-icon-effect: none; /* Remove dimming effect on selected */
+    opacity: 1.0;           /* Make the icon fully visible */
+}
+#inner-box {
+margin: 5px;
+border: 2px solid #ff0066;
+background-color: rgba(20, 20, 20, 0.7);
+border-radius: 16px;
+}
+#input {
+margin: 5px;
+color: #ffffff;
+background-color: rgba(20, 20, 20, 0.7);
+border: none;
+box-shadow: none;
+outline: none;
+background-color: transparent;
+border-radius: 12px;
+}
+#input:focused{
+margin: 5px;
+border: none;
+box-shadow: none;
+outline: none;
+background-color: transparent;
+}
