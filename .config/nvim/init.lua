@@ -1,6 +1,11 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+vim.opt.clipboard = "unnamedplus"
+vim.keymap.set('v', '<C-S-c>', '"+y', { desc = 'Copiar selección al portapapeles' })
+
+-- Ahora todas las copias (`y`) irán al portapapeles de Wayland.
+
 -- [[ Setting options ]]
 
 -- Make line numbers default
@@ -176,14 +181,14 @@ require("lazy").setup({
 				{ "<leader>c", name = "[C]ode" },
 				{ "<leader>d", name = "[D]ocument" },
 				{ "<leader>g", name = "[G]it" },
-				{ "<leader>h", group = "Git [H]unk", mode = { "n", "v" } },
+				{ "<leader>h", group = "Git [H]unk",     mode = { "n", "v" } },
 				{ "<leader>r", name = "[R]ename" },
 				{ "<leader>s", name = "[S]earch" },
 				{ "<leader>t", name = "[T]erminal" },
 				{ "<leader>w", name = "[W]orkspace" },
 				-- register which-key VISUAL mode
 				-- required for visual <leader>hs (hunk stage) to work
-				{ "<leader>", name = "VISUAL <leader>", mode = { "v" } },
+				{ "<leader>",  name = "VISUAL <leader>", mode = { "v" } },
 			})
 		end,
 	},
@@ -230,7 +235,8 @@ require("lazy").setup({
 			vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
 			vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
 			vim.keymap.set("n", "<leader>sr", builtin.resume, { desc = "[S]earch [R]esume" })
-			vim.keymap.set("n", "<leader>s.", builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
+			vim.keymap.set("n", "<leader>s.", builtin.oldfiles,
+				{ desc = '[S]earch Recent Files ("." for repeat)' })
 			vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
 
 			-- Slightly advanced example of overriding default behavior and theme
@@ -268,14 +274,18 @@ require("lazy").setup({
 				group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
 				callback = function(event)
 					local map = function(keys, func, desc)
-						vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
+						vim.keymap.set("n", keys, func,
+							{ buffer = event.buf, desc = "LSP: " .. desc })
 					end
 
 					map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
 					map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
-					map("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
-					map("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
-					map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
+					map("gI", require("telescope.builtin").lsp_implementations,
+						"[G]oto [I]mplementation")
+					map("<leader>D", require("telescope.builtin").lsp_type_definitions,
+						"Type [D]efinition")
+					map("<leader>ds", require("telescope.builtin").lsp_document_symbols,
+						"[D]ocument [S]ymbols")
 					map(
 						"<leader>ws",
 						require("telescope.builtin").lsp_dynamic_workspace_symbols,
@@ -303,7 +313,8 @@ require("lazy").setup({
 			})
 
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
-			capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
+			capabilities = vim.tbl_deep_extend("force", capabilities,
+				require("cmp_nvim_lsp").default_capabilities())
 
 			local servers = {
 				pyright = {
@@ -364,7 +375,8 @@ require("lazy").setup({
 							cmd = server.cmd,
 							settings = server.settings,
 							filetypes = server.filetypes,
-							capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {}),
+							capabilities = vim.tbl_deep_extend("force", {}, capabilities,
+								server.capabilities or {}),
 						})
 					end,
 				},
