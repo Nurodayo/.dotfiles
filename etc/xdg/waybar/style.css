@@ -2,16 +2,17 @@
   /* `otf-font-awesome` is required to be installed for icons */
   font-family: "Noto Sans CJK KR Regular";
   /*font-family: "D2CodingLigature Nerd Mono";*/
-  font-size: 13px;
+  font-size: 14px;
   min-height: 0;
-  border-radius: 6px;
+  /* border-radius: 8px; */
 }
 
 window#waybar {
-  background: transparent;
+  background: rgba(0, 0, 0, 0.2);
   /*    background-color: rgba(43, 48, 59, 0.5); */
   /*    border-bottom: 3px solid rgba(100, 114, 125, 0.5); */
   color: #ffffff;
+  /* text-shadow: 0 0 5px #fff; */
   transition-property: background-color;
   transition-duration: .5s;
 }
@@ -21,20 +22,25 @@ window#waybar.hidden {
 }
 
 #waybar.empty #window {
-  background-color: transparent;
+  background-color: rgba(20, 20, 20, 0.8);
 }
 
 #workspaces {
 }
 
 #window {
-  margin: 2;
+  margin: 6;
+  /* padding: 1rem 2rem; */
+  padding-top: 2;
+  padding-bottom: 2;
   padding-left: 8;
   padding-right: 8;
   /*background-color: rgba(0,0,0,1); */
   background: linear-gradient(180deg, #ff0066, #ff4ab7);
+  box-shadow: 0 0 4px #ff0066;
+  /* text-shadow: 0 0 5px #fff; problems with kana */
   border-radius: 8;
-  font-size:16px;
+  font-size:12px;
   font-weight: bold;
 }
 
@@ -49,6 +55,8 @@ button {
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 button:hover {
   background: inherit;
+  text-shadow: 0 0 5px #ff4ab7;
+  color: #ff4ab7;
   border-top: 2px solid #ff4ab7;
 }
 
@@ -64,6 +72,7 @@ button:hover {
   /*    box-shadow: inset 0 -2px #c9545d; */
   background-color: rgba(0,0,0,0.3);
   color:#c9545d;
+  /* text-shadow: 0 0 5px #ff4ab7; */
   border-top: 2px solid #c9545d;
 }
 
@@ -71,8 +80,9 @@ button:hover {
   /*    box-shadow: inset 0 -2px #c9545d; */
   background-color: rgba(0,0,0,0.3);
   color:#ff0066;
+  text-shadow: 0 0 6px #ff0000;
   border-top: 2px solid #ff0066;
-  border-radius: 6px;
+  border-radius: 2px;
 }
 
 #workspaces button.urgent {
@@ -104,6 +114,7 @@ button:hover {
   padding-left: 4px;
   padding-right: 4px;
   background-color: rgba(0,0,0,0.3);
+  border-radius: 8px;
   color: #ffffff;
 }
 
@@ -118,7 +129,7 @@ button:hover {
 }
 
 #custom-clock {
-  font-size:14px;
+  font-size:15px;
 
 }
 

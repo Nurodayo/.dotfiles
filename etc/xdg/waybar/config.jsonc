@@ -8,7 +8,7 @@
     "modules-left": ["hyprland/workspaces", "hyprland/mode", "hyprland/scratchpad", "custom/media"],
     "modules-center": ["hyprland/window"],
     //"modules-right": ["mpd", "idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature", "backlight", "keyboard-state", "battery", "battery#bat2", "clock", "tray"],
-    "modules-right": ["mpd", "idle_inhibitor", "temperature", "memory","network", "pulseaudio", "backlight", "battery", "battery#bat2", "tray", "custom/clock"],
+    "modules-right": ["mpd", "idle_inhibitor", "memory", "pulseaudio", "backlight", "battery", "battery#bat2", "tray", "custom/clock"],
     // Modules configuration
     // "hyprland/workspaces": {
     //     "disable-scroll": true,
