@@ -363,7 +363,7 @@ require("lazy").setup({
 				ensure_installed = {
 					"lua_ls",
 					"pyright",
-					"clangd",
+					--"clangd",
 					"sqlls",
 					"eslint",
 				},
@@ -556,4 +556,4 @@ vim.keymap.set(
 
 -- No wrap lines
 vim.opt.wrap = false
-require("lspconfig").clangd.setup({})
+--require("lspconfig").clangd.setup({})

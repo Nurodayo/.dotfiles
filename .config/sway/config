@@ -21,11 +21,25 @@ set $web firefox
 set $steam steam
 exec_always waybar
 exec_always fcitx5
+exec --no-startup-id /usr/lib/xdg-desktop-portal-wlr
+exec --no-startup-id /usr/lib/xdg-desktop-portal-gtk
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output HDMI-A-1 pos 0 0 res 1920x1080 adaptive_sync on bg /home/nurodayo/Pictures/Wallpapers/wallpaper01.jpg fill
 output HDMI-A-2 pos -1920 0 res 1920x1080 bg /home/nurodayo/Pictures/Wallpapers/wallpaper02.jpg fill
+default_border pixel
+gaps inner 8
+blur enable
+blur_passes 2
+blur_radius 8
+blur_noise 0.15
+corner_radius 8
+shadows enable
+shadow_blur_radius 4
+shadow_color #ff00667F
+shadow_inactive_color #dd00443F
+shadow_offset 2 4
 
 workspace 1 output HDMI-A-1
 workspace 3 output HDMI-A-1
@@ -236,7 +250,7 @@ bindsym $mod+r mode "resize"
     bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
     bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
     # Special key to take a screenshot with grim
-    bindsym $mod+Shift+s exec grim
+    bindsym $mod+Shift+s exec grim -g "$(slurp)" ~/Pictures/screenshots/$(date +'%Y-%m-%d_%H-%M-%S').png
 
 #
 # Status Bar:
