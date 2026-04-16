@@ -1,0 +1,26 @@
+add_newline = false
+format = " $hostname$directory$character"
+
+[character]
+success_symbol = "[❯](bold white)"
+error_symbol = "[❯](bold red)"
+
+[directory]
+truncation_length = 3
+style = "bold cyan"
+
+[git_branch]
+style = "bold white"
+
+[git_status]
+style = "white"
+
+[cmd_duration]
+disabled = true
+
+[nodejs]
+disabled = true
+
+[hostname]
+ssh_only = false
+style = "#ff0066"
