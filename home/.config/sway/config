@@ -22,6 +22,7 @@ set $web firefox
 set $steam steam
 exec_always waybar
 exec_always fcitx5
+exec_always easyeffects
 #exec_always --no-startup-id /usr/lib/xdg-desktop-portal-wlr
 #exec_always --no-startup-id /usr/lib/xdg-desktop-portal-gtk
 exec_always systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE XDG_RUNTIME_DIR
@@ -36,15 +37,13 @@ exec_always /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output HDMI-A-1 pos 0 0 res 1920x1080 adaptive_sync on bg /home/nurodayo/Pictures/Wallpapers/wallpaper01.jpg fill
-output HDMI-A-2 pos -1920 0 res 1920x1080 bg /home/nurodayo/Pictures/Wallpapers/wallpaper02.jpg fill
+output HDMI-A-1 pos 0 0 res 1920x1080 render_bit_depth 10 bg /home/nurodayo/Pictures/Wallpapers/wallpaper01.jpg fill
 default_border pixel
 gaps inner 8
 ## SWAYFX
 blur enable
-blur_passes 2
+blur_passes 1
 blur_radius 8
-blur_noise 0.15
 corner_radius 8
 shadows enable
 shadow_blur_radius 4

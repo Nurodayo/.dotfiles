@@ -316,6 +316,7 @@ require("lazy").setup({
 			capabilities = vim.tbl_deep_extend("force", capabilities,
 				require("cmp_nvim_lsp").default_capabilities())
 
+
 			local servers = {
 				pyright = {
 					settings = {
@@ -366,6 +367,7 @@ require("lazy").setup({
 					--"clangd",
 					"sqlls",
 					"eslint",
+					--"rust_analyzer"
 				},
 				automatic_installation = true,
 				handlers = {
@@ -483,6 +485,7 @@ require("lazy").setup({
 
 	{ -- Highlight, edit, and navigate code
 		"nvim-treesitter/nvim-treesitter",
+		lazy = true,
 		build = ":TSUpdate",
 		config = function()
 			-- [[ Configure Treesitter ]] See `:help nvim-treesitter`
@@ -506,6 +509,7 @@ require("lazy").setup({
 			})
 		end,
 	},
+	{ import = "plugins" }
 })
 
 -- Transparent background
@@ -557,3 +561,4 @@ vim.keymap.set(
 -- No wrap lines
 vim.opt.wrap = false
 --require("lspconfig").clangd.setup({})
+--require("rust-tools").setup({})

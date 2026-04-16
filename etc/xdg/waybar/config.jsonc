@@ -5,10 +5,10 @@
     // "width": 1280, // Waybar width
     //"spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad", "custom/media"],
+    "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad"],
     "modules-center": ["sway/window"],
     //"modules-right": ["mpd", "idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature", "backlight", "keyboard-state", "battery", "battery#bat2", "clock", "tray"],
-    "modules-right": ["mpd", "idle_inhibitor", "memory", "pulseaudio", "backlight", "battery", "battery#bat2", "tray", "custom/clock"],
+    "modules-right": ["memory", "wireplumber","backlight", "battery", "battery#bat2", "tray", "custom/clock"],
     // Modules configuration
     // "sway/workspaces": {
     //     "disable-scroll": true,
@@ -86,7 +86,7 @@
     },
     "tray": {
         // "icon-size": 21,
-        "spacing": 10
+        "spacing": 8
     },
     "custom/clock": {
         // "timezone": "America/New_York",
@@ -144,25 +144,30 @@
         "format-disconnected": "Disconnected ⚠ {ifname}",
         "format-alt": " {ifname}: {ipaddr}/{cidr}"
     },
-    "pulseaudio": {
-        "scroll-step": 5, // %, can be a float
-        "format": "{icon} {volume}% {format_source}",
-        "format-bluetooth": " {icon} {volume}% {format_source}",
-        "format-bluetooth-muted": "  {icon} {format_source}",
-        "format-muted": "  {format_source}",
-        "format-source": " {volume}%",
-        "format-source-muted": "",
-        "format-icons": {
-//            "headphone": "",
-//            "hands-free": "",
-//            "headset": "",
-//            "phone": "",
-//            "portable": "",
-//            "car": "",
-            "default": ["", "", ""]
-        },
-        "on-click": "pavucontrol",
-        "on-click-right": "foot -a pw-top pw-top"
+    "wireplumber": {
+            "scroll-step": 5,
+    "format": "{icon} {volume}%",
+    "format-muted": "",
+    "format-icons": ["", "", ""],
+    "on-click": "pavucontrol",
+    "on-click-right": "foot -a pw-top pw-top"
+//         "scroll-step": 5, // %, can be a float
+//         "format": "{icon} {volume}% {format_source}",
+//         "format-muted": "  {format_source}",
+//         "format-source": " {volume}%",
+//         "format-source-muted": "",
+//         "format-icons": {
+// //            "headphone": "",
+// //            "hands-free": "",
+// //            "headset": "",
+// //            "phone": "",
+// //            "portable": "",
+// //            "car": "",
+//             "default": ["", "", ""]
+//         },
+//         "on-click": "pavucontrol",
+//         "on-click-right": "foot -a pw-top pw-top"
+//         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     },
     "custom/media": {
         "format": "{icon} {}",
@@ -174,6 +179,5 @@
         },
         "escape": true,
         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
-        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     }
 }
