@@ -58,3 +58,5 @@ alias find='fd'
 
 # Starship prompt
 eval "$(starship init zsh)"
+
+export PATH="$HOME/tools/node-v14.15.4-linux-x64/bin:$PATH"
